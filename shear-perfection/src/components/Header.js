@@ -38,7 +38,7 @@ const Header = () => {
                 <FauxLink>Testimonials</FauxLink>
             </FauxNav>
         </StyledHeaderItems>
-    )
-}
+    );
+};
 
-export default Header
+export default Header;

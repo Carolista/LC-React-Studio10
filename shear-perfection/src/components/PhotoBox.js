@@ -1,27 +1,9 @@
 import React from 'react';
-import styled, { keyframes } from 'styled-components';
+import styled from 'styled-components';
+import PropTypes from 'prop-types'
 
 const boxSize = 240 + 'px';
-
-const desaturate = keyframes`
-    from { filter: grayscale(0%); }
-    to { filter: grayscale(100%); }
-`;
-
-const colorize = keyframes`
-    from { filter: grayscale(100%); }
-    to { filter: grayscale(0%); }
-`;
-
-const appear = keyframes`
-    from { opacity: 0; }
-    to { opacity: 0.7 }
-`;
-
-const disappear = keyframes`
-    from { opacity: 0.7; }
-    to { opacity: 0 }
-`;
+const accentColor = 'darkmagenta';
 
 const ShadowedBox = styled.div`
     display: flex;
@@ -32,15 +14,15 @@ const ShadowedBox = styled.div`
     width: ${boxSize};
     height: ${boxSize};
     padding: 0px;
-    margin: 0px 0px 40px;
+    margin: 0px 0px 35px;
     border: 3px solid white;
     cursor: pointer;
-    animation: ${desaturate} 1s;
-    box-shadow: 10px 10px darkmagenta;
+    box-shadow: 10px 10px ${accentColor};
     filter: grayscale(100%);
+    transition: all 1s;
     &:hover {
-        animation: ${colorize} 1s;
         filter: grayscale(0%);
+        transition: all 1s;
     }
 `;
 
@@ -58,10 +40,10 @@ const Overlay = styled.div`
     bottom: 15px;
     opacity: 0;
     z-index: 2;
-    animation: ${disappear} 1s;
+    transition: all 1s;
     ${ShadowedBox}:hover & {
         opacity: 0.7;
-        animation: ${appear} 1s;
+        transition: all 1s;
     }
 `;
 
@@ -75,4 +57,10 @@ const PhotoBox = (props) => {
     );
 };
 
-export default PhotoBox
+PhotoBox.propTypes = {
+    id: PropTypes.number.isRequired,
+    name: PropTypes.string.isRequired,
+    image: PropTypes.string.isRequired,
+};
+
+export default PhotoBox;

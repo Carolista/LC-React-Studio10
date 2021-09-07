@@ -1,5 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
+import PropTypes from 'prop-types';
 import PhotoBox from './PhotoBox';
 
 const PhotoGrid = styled.div`
@@ -8,7 +9,18 @@ const PhotoGrid = styled.div`
     align-self: center;
     justify-content: space-between;
     flex-wrap: wrap;
-    width: 810px;
+    @media (max-width: 900px) {
+        width: 530px;
+        transition: 0.3s ease-in-out;
+    }
+    @media (min-width: 900px) {
+        width: 810px;
+        transition: 0.3s ease-in-out;
+    }
+    @media (min-width: 1200px) {
+        width: 1090px;
+        transition: 0.3s ease-in-out;
+    }
 `;
 
 const Stylists = (props) => {
@@ -36,4 +48,8 @@ const Stylists = (props) => {
     );
 };
 
-export default Stylists
+Stylists.propTypes = {
+    allStylists: PropTypes.array.isRequired,
+};
+
+export default Stylists;
