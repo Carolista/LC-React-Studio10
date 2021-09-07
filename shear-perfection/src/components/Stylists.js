@@ -5,21 +5,20 @@ import PhotoBox from './PhotoBox';
 const PhotoGrid = styled.div`
     display: flex;
     flex-direction: row;
+    align-self: center;
     justify-content: space-between;
     flex-wrap: wrap;
     width: 810px;
 `;
 
-
-
 const Stylists = (props) => {
 
     const Photos = () => {
 
-        const list = props.stylists.map(stylist => {
-            return <PhotoBox name={stylist.name} image={stylist.img}  />
-        })
-
+        const list = props.allStylists.map(stylist => {
+            return <PhotoBox key={stylist.id} name={stylist.name} image={stylist.image}  />;
+        });
+        
         return (
             <React.Fragment>
                 {list}
@@ -31,11 +30,7 @@ const Stylists = (props) => {
         <React.Fragment>
             <h1>Meet Our Talented Team</h1>
             <PhotoGrid>
-            <Photos />
-                <PhotoBox image="kaylee.jpg" name="Kaylee" />
-                <PhotoBox image="joe.jpg" name="Joe" />
-                <PhotoBox image="susannah.jpg" name="Susannah" />
-                <PhotoBox image="tariq.jpg" name="Tariq" />
+                <Photos />
             </PhotoGrid>
         </React.Fragment>
     );

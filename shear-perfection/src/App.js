@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import Header from './components/Header';
 import Stylists from './components/Stylists';
 import styled from 'styled-components';
@@ -8,19 +8,35 @@ const MainArea = styled.div`
     flex-direction: column;
     justify-content: center;
     text-align: center;
-    align-items: top;
-    margin: 40px 0px 0px;
+    margin: 30px 0px 0px;
 `;
 
 const App = () => {
 
     const [stylists, setStylists] = useState([]);
 
+    const getStylists = async () => {
+        const response = await fetch("data/stylistData.json");
+        const data = await response.json();
+        const stylistArray = data.map(obj => {
+            return {
+                id: obj.id,
+                name: obj.name,
+                image: obj.img
+            };
+        });
+        setStylists(stylistArray);
+    };
+
+    useEffect(() => {
+        getStylists();
+    }, []);
+
     return (
         <React.Fragment>
             <Header />
             <MainArea>
-                <Stylists stylists={stylists} />
+                {stylists.length > 0 && <Stylists allStylists={stylists} />}
             </MainArea>
         </React.Fragment>
     );
