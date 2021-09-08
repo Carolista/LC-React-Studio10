@@ -9,6 +9,7 @@ const MainArea = styled.div`
     justify-content: center;
     text-align: center;
     margin: 30px 0px 0px;
+    min-width: 600px;
 `;
 
 const App = () => {
@@ -22,7 +23,14 @@ const App = () => {
             return {
                 id: obj.id,
                 name: obj.name,
-                image: obj.img
+                image: obj.image,
+                experience: obj.experience,
+                clientele: obj.clientele,
+                specialties: obj.specialties,
+                schedule: obj.schedule,
+                from: obj.from,
+                faveSTL: obj.faveSTL,
+                loves: obj.loves
             };
         });
         setStylists(stylistArray);

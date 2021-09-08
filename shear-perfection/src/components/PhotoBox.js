@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types'
 
@@ -11,7 +11,7 @@ const ShadowedBox = styled.div`
     justify-content: center;
     align-items: center;
     text-align: center;
-    width: ${boxSize};
+    width: auto;
     height: ${boxSize};
     padding: 0px;
     margin: 0px 0px 35px;
@@ -19,10 +19,10 @@ const ShadowedBox = styled.div`
     cursor: pointer;
     box-shadow: 10px 10px ${accentColor};
     filter: grayscale(100%);
-    transition: all 1s;
+    transition: filter 0.5s ease-in-out;
     &:hover {
         filter: grayscale(0%);
-        transition: all 1s;
+        transition: filter 0.5s ease-in-out;
     }
 `;
 
@@ -36,30 +36,35 @@ const Overlay = styled.div`
     color: white;
     background-color: black;
     width: ${boxSize};
-    height: 45px;
-    bottom: 15px;
+    height: 5px;
+    bottom: 36px;
     opacity: 0;
-    z-index: 2;
-    transition: all 1s;
+    transition: all 0.3s ease-out;
     ${ShadowedBox}:hover & {
+        height: 40px;
+        bottom: 12px;
         opacity: 0.7;
-        transition: all 1s;
+        transition: all 0.3s ease-in;
     }
 `;
 
 const PhotoBox = (props) => {
 
+    // To identify a unique instance of this component as the one that was clicked
+    const boxRef = useRef();
+
     return (
-        <ShadowedBox>
-            <Overlay>{props.name}</Overlay>
-            <img src={`images/${props.image}`} width={boxSize} height={boxSize} alt={props.name} />
+        // ShadowedBox is a styled div, not a component, so we can put the ref directly on it
+        <ShadowedBox ref={boxRef} onClick={props.handleOpen}>
+            <Overlay>{props.stylist.name}</Overlay>
+            <img src={`images/${props.stylist.image}`} width={boxSize} height={boxSize} alt={props.stylist.name} />
         </ShadowedBox>
     );
 };
 
 PhotoBox.propTypes = {
-    name: PropTypes.string.isRequired,
-    image: PropTypes.string.isRequired,
+    stylist: PropTypes.object.isRequired,
+    handleOpen: PropTypes.func.isRequired,
 };
 
 export default PhotoBox;

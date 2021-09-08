@@ -5,6 +5,7 @@ const StyledHeaderItems = styled.div`
     display: flex;
     flex-direction: row;
     justify-content: space-between;
+    min-width: 600px;
 `;
 
 const FauxNav = styled.div`
@@ -19,7 +20,7 @@ const FauxLink = styled.p`
     margin: 5px 0px;
 `;
 
-const CurrentLink = styled.span`
+const Current = styled.span`
     color: darkmagenta;
     font-weight: 700;
 `;
@@ -31,9 +32,7 @@ const Header = () => {
             <img src="images/shear-perfection-logo.png" height="100px" alt="Shear Perfection logo" />
             <FauxNav>
                 <FauxLink>List of Services</FauxLink>
-                <FauxLink>
-                    <CurrentLink>Our Stylists</CurrentLink>
-                </FauxLink>
+                <FauxLink><Current>Our Stylists</Current></FauxLink>
                 <FauxLink>Book an Appointment</FauxLink>
                 <FauxLink>Testimonials</FauxLink>
             </FauxNav>
