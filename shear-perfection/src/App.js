@@ -16,6 +16,7 @@ const App = () => {
 
     const [stylists, setStylists] = useState([]);
 
+    // Use async and await to handle fetch and response of JSON
     const getStylists = async () => {
         const response = await fetch("data/stylistData.json");
         const data = await response.json();
@@ -36,10 +37,12 @@ const App = () => {
         setStylists(stylistArray);
     };
 
+    // Initiate fetch function
     useEffect(() => {
         getStylists();
     }, []);
 
+    // Send all regular page content to 'root' in index.html
     return (
         <React.Fragment>
             <Header />

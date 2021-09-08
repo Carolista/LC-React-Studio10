@@ -20,11 +20,12 @@ const FauxLink = styled.p`
     margin: 5px 0px;
 `;
 
-const Current = styled.span`
+const CurrentPage = styled.span`
     color: darkmagenta;
     font-weight: 700;
 `;
 
+// PRIMARY COMPONENT
 const Header = () => {
 
     return (
@@ -32,7 +33,7 @@ const Header = () => {
             <img src="images/shear-perfection-logo.png" height="100px" alt="Shear Perfection logo" />
             <FauxNav>
                 <FauxLink>List of Services</FauxLink>
-                <FauxLink><Current>Our Stylists</Current></FauxLink>
+                <FauxLink><CurrentPage>Our Stylists</CurrentPage></FauxLink>
                 <FauxLink>Book an Appointment</FauxLink>
                 <FauxLink>Testimonials</FauxLink>
             </FauxNav>
