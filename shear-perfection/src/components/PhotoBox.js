@@ -1,5 +1,5 @@
 // TODO: Add the useRef hook to the import from 'react'
-import React, { useRef } from 'react';
+import React from 'react';
 import styled from 'styled-components';
 import PropTypes from 'prop-types'
 
@@ -53,13 +53,13 @@ const NameOverlay = styled.div`
 const PhotoBox = (props) => {
 
     // TODO: Create a ref called boxRef to identify a unique instance of this component as the one that was clicked. Don't forget to add the necessary hook to the import from 'react'
-    const boxRef = useRef();
+
 
     return (
         // TODO: Add a ref attribute and pass in boxRef
         // Note: ShadowedBox is a styled div, not a component, so we can put the ref directly on it
         // TODO: Add an onClick attribute and give it the handleOpen prop that was passed in from the Stylists component
-        <ShadowedBox ref={boxRef} onClick={props.handleOpen}>
+        <ShadowedBox>
             <NameOverlay>{props.stylist.name}</NameOverlay>
             <img src={`images/${props.stylist.image}`} width={boxSize} height={boxSize} alt={props.stylist.name} />
         </ShadowedBox>

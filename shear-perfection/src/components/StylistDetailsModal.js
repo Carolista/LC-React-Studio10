@@ -1,7 +1,7 @@
 // TODO: Add the useRef hook to the import from 'react'
-import React, { useRef } from 'react';
+import React from 'react';
 // TODO: Import the createPortal method from 'react-dom'
-import { createPortal } from 'react-dom';
+
 import PropTypes from 'prop-types';
 import styled from 'styled-components';
 
@@ -69,7 +69,7 @@ const StyledButton = styled.button`
 const StylistDetailsModal = (props) => {
 
     // TODO: Create a ref called 'modalRef' to identify a unique instance of this component as the one that should be displayed when its corresponding PhotoBox instance is clicked. Don't forget to add the necessary hook to the import from 'react'
-    const modalRef = useRef();
+
     
     // Subcomponent - placing it inside gives it direct access to the primary component's props
     const Details = () => {
@@ -97,7 +97,7 @@ const StylistDetailsModal = (props) => {
     // Subcomponent - has access to primary component's props
     const Backdrop = () => {
         // TODO: Add an onClick attribute and pass in the 'handleClose' prop that is received from the Stylists component
-        return <StyledBackdrop onClick={props.handleClose} />;
+        return <StyledBackdrop/>;
     }
 
     // Subcomponent - has access to primary component's props
@@ -106,17 +106,16 @@ const StylistDetailsModal = (props) => {
         return (
             <StyledModal>
                 <Details />
-                <StyledButton onClick={props.handleClose}>Close</StyledButton>
+                <StyledButton>Close</StyledButton>
             </StyledModal>
         );
     }
 
     return (
-        // TODO: Create a div and give it a ref attribute with the value modalRef that you created above.
+        // TODO: Give the div a ref attribute with the value modalRef that you created above.
         // TODO: Set Backdrop and Modal into portals that are linked to the siblings of app-root you created in index.html. Make sure each one displays conditionally - only if the 'show' prop is true. Also make sure you've imported the createPortal method from 'react-DOM' at the top!
-        <div ref={modalRef}>
-            {props.show && createPortal(<Backdrop />, document.getElementById("backdrop-root"))}
-            {props.show && createPortal(<Modal />, document.getElementById("modal-root"))}
+        <div>
+
         </div>
     );
 };
