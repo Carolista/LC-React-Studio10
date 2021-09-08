@@ -91,6 +91,10 @@ Only a couple last things to do before you can see your modal in action.
  - [ ] Go to `index.html` and look at the `TODO`. Create two new divs and give them the ids of `backdrop-root` and `modal-root`. 
  - [ ] Now go to the `StylistDetailsModal` component and scroll to the bottom. Within the JSX, follow the instructions on the last `TODO` to place the `Backdrop` and `Modal` components into their respective portals. Visit the [createPortal page](https://reactjs.org/docs/portals.html) in the React documentation if you need a reminder of the usage - and you can use your old DOM knowledge from Unit 1 to reference the new elements you just created in `index.html`!
 
+Give it a whirl! You should now have the ability to see this:
+
+<p align="center"><img width="947" alt="The final product - a working modal" src="https://user-images.githubusercontent.com/55961845/132597842-7ab77c57-b60e-47e2-8a14-6264a54e9c2d.png"></p>
+
 ---
 
 ## That's it! Great job!
