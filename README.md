@@ -2,7 +2,7 @@
 
 This studio focuses on using fragments, refs, and portals. It is recommended to view these instructions from the main repository page on GitHub where the markdown formatting and images are displayed.
 
-You're going to finish an salon web page that should ultimately let a user click on the photo of a stylist and get a modal with various details about that person. Pretty straightforward, but there's a few steps involved. All the styling has been done for you using the styled-components library.
+You're going to finish a salon web page that should ultimately let a user click on the photo of a stylist and get a modal with various details about that person. Pretty straightforward, but there's a few steps involved. All the styling has been done for you using the styled-components library.
 
 ---
 
@@ -57,7 +57,7 @@ The `Stylists`, `PhotoBox`, and `StylistDetailsModal` components are where you'l
 ### C. Implement the `StylistDetailsModal` component and give it props to pass down.
  - [ ] Before you can add a second component here to render, you need to group it together. Surround `<PhotoBox>` with a React fragment.
  - [ ] Inside the fragment, either above or below `<PhotoBox>`, add an implementation of `<StylistDetailsModal>`. Don't forget to import it at the top!
- - [ ] Give `<StylistDetailsModal>` three props: `stylist`, `show`, and `handleClose`. Give each of them the appropriate value from above.
+ - [ ] Give `<StylistDetailsModal>` three props: `stylist`, `show`, and `handleClose`. Give each of them the values `stylist` (local variable), `open` (state variable), and `handleCloseModal`.
 
 Now everything should be ready for the children components, `PhotoBox` and `StylistDetailsModal`, to use.
 
@@ -84,7 +84,7 @@ Only a couple last things to do before you can see your modal in action.
  - [ ] In the `PhotoBox` component, add the `useRef` hook to the import from `'react'`. 
  - [ ] Just inside the component class, create a new ref called `boxRef`.
  - [ ] In the implementation of `<ShadowedBox>`, add the `ref` attribute and give it `boxRef`.
- - [ ] In the `StylistDetailsModal` component, repeat that process, except the ref will be called `modalRef` and you'll put it in the `<div>` in the JSX.
+ - [ ] In the `StylistDetailsModal` component, repeat that process, except the ref will be called `modalRef` and you'll put it in the `<div>` in the JSX at the bottom that is returned from the primary component.
  - [ ] Wow, that was easy!
 
 ### B. Create portals and send them to new root elements in the home page. This is where your backdrop and modal will display.
