@@ -9,7 +9,7 @@ You're going to finish a salon web page that should ultimately let a user click 
 ## Getting Started
 
 ### A. Fork & clone the repository from GitHub.
- - [ ] Navigate to the [studio 04 project repository](https://github.com/Carolista/LC-React-Studio10).
+ - [ ] Navigate to the [studio 10 project repository](https://github.com/Carolista/LC-React-Studio10).
  - [ ] Fork the repository to your own account, then grab the link from the green Code dropdown.
  - [ ] In your terminal, go to the folder where you want your project to be. Use `git clone` to create your local copy.
 
